@@ -1,0 +1,31 @@
+# FPGA build outputs
+build/*
+!build/.gitkeep
+
+# Simulation results
+sim_results/*
+!sim_results/.gitkeep
+
+# Icarus Verilog outputs
+*.vvp
+*.vcd
+
+# Apio generated files
+*.asc
+*.bin
+*.blif
+*.rpt
+.sconsign.dblite
+*.out
+
+# Editor and OS specific files
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
+.idea/
+
+# Python virtual environment
+venv/
+env/
