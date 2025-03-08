@@ -1,0 +1,52 @@
+# Physical constraints file (PCF) for FFT Accelerator
+# Compatible with Lattice iCE40 FPGAs and APIO toolchain
+
+# Clock pin (12MHz) - Specific to the Lattice iCEstick Evaluation Board
+set_io clk 21
+
+# Reset pin (active low) - Connected to PMOD[0]
+set_io rst_n 78
+
+# Start signal - Connected to PMOD[1]
+set_io start 79
+
+# Status LEDs - Connected to on-board LEDs
+set_io led[0] 99  # busy
+set_io led[1] 98  # done
+set_io led[2] 97  # data_out_valid
+set_io led[3] 96  # loading state
+set_io led[4] 95  # output state
+
+# Input data - Connected to PMOD pins
+# Using 8-bit width for physical implementation (could be expanded with SPI or other interfaces for full width)
+set_io data_in_real[0] 80
+set_io data_in_real[1] 81
+set_io data_in_real[2] 82
+set_io data_in_real[3] 83
+set_io data_in_imag[0] 84
+set_io data_in_imag[1] 85
+set_io data_in_imag[2] 86
+set_io data_in_imag[3] 87
+
+# Output data - Connected to PMOD pins
+set_io data_out_real[0] 88
+set_io data_out_real[1] 89
+set_io data_out_real[2] 90
+set_io data_out_real[3] 91
+set_io data_out_imag[0] 92
+set_io data_out_imag[1] 93
+set_io data_out_imag[2] 94
+set_io data_out_imag[3] 95
+
+# Control signals
+set_io data_valid 79  # shared with start
+set_io rd_en 78       # shared with rst_n (active when rst_n is high and a button press would make it low temporarily)
+
+# Note: For a complete FFT implementation with 16-bit data width, additional
+# interface options should be considered:
+# 1. Serial interface (SPI/UART) for transferring full-width data
+# 2. Block RAM interface for loading/retrieving data
+# 3. External memory interface
+
+# This PCF file is configured for basic demonstration purposes on the iCEstick
+# Modify according to your specific FPGA board's pin mapping
